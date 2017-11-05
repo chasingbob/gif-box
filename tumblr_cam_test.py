@@ -41,15 +41,15 @@ for i, filename in enumerate(camera.capture_continuous('image{counter:02d}.jpg')
         camera.annotate_text = '5'
     if i == 5:
         break
-    camera.stop_preview() #stop preview 
-    os.system(makeVid) #send command to convert images to GIF
-    print('uploading') #let us know photo is about to start uploading
+camera.stop_preview() #stop preview 
+os.system(makeVid) #send command to convert images to GIF
+print('uploading') #let us know photo is about to start uploading
 
 #upload photo to Tumblr
 client.create_photo(
     'chasingbob',	#update to your username
-	state="draft",
-	tags=["pi photobooth", "raspberry pi", "instructables"],
+	state="published",
+	tags=["picamera", "raspberry pi"],
 	data="animation.gif")
 
 print("uploaded") #let us know GIF has been uploaded
