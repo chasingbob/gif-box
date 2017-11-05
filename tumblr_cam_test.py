@@ -30,7 +30,7 @@ camera.annotate_text = 'Get Ready!'
 camera.annotate_text = '1'
 #take 6 photos
 for i, filename in enumerate(camera.capture_continuous('image{counter:02d}.jpg')):
-    sleep(2)
+    sleep(0.75)
     if i == 1:
         camera.annotate_text = '2'
     elif i == 2:
@@ -39,7 +39,17 @@ for i, filename in enumerate(camera.capture_continuous('image{counter:02d}.jpg')
         camera.annotate_text = '4'
     elif i == 4:
         camera.annotate_text = '5'
-    if i == 5:
+    elif i == 5:
+        camera.annotate_text = '6'
+    elif i == 6:
+        camera.annotate_text = '7'
+    elif i == 7:
+        camera.annotate_text = '8'
+    elif i == 8:
+        camera.annotate_text = '9'
+    elif i == 9:
+        camera.annotate_text = '10'
+    if i == 10:
         break
 camera.stop_preview() #stop preview 
 os.system(makeVid) #send command to convert images to GIF
