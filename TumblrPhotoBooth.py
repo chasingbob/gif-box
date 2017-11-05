@@ -5,6 +5,7 @@ import os
 import picamera
 import pytumblr
 from fractions import Fraction
+import config
 
 #create variables to hold commands 
 makeVid = "convert -delay 50 image*.jpg animation.gif"
@@ -18,10 +19,10 @@ button = 18
 
 # AuthenticateS via OAuth, copy from https://api.tumblr.com/console/calls/user/info
 client = pytumblr.TumblrRestClient(
-  'your_consumer_key',
-  'your_consumer_secret',
-  'your_token',
-  'your_token_secret'
+  config.get_value('consumer_key'),
+  config.get_value('consumer_secret'),
+  config.get_value('token'),
+  config.get_value('token_secret')
 )
 
 #set up pins
