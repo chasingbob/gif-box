@@ -23,19 +23,24 @@ camera.annotate_foreground = picamera.Color(y=0.2, u=0, v=0) #set color of annot
 
 
 #start camera preview                
-camera.start_preview()
+#camera.start_preview()
 
 #display text over preview screen
-camera.annotate_text = 'Get Ready!'
-camera.annotate_text = '1'
+#camera.annotate_text = 'Get Ready!'
+#camera.annotate_text = '1'
 #take 6 photos
+
+print("get ready...")
+sleep(1.0)
+print("go...")
+
 for i, filename in enumerate(camera.capture_continuous('image{counter:02d}.jpg')):
-    sleep(0.5)
-    if i == 8:
+    sleep(0.75)
+    if i == 6:
         break
-camera.stop_preview() #stop preview 
+#camera.stop_preview() #stop preview 
 os.system(makeVid) #send command to convert images to GIF
-print('uploading') #let us know photo is about to start uploading
+print('uploading...') #let us know photo is about to start uploading
 
 #upload photo to Tumblr
 client.create_photo(
@@ -44,5 +49,5 @@ client.create_photo(
 	tags=["picamera", "raspberry pi", "test"],
 	data="animation.gif")
 
-print("uploaded") #let us know GIF has been uploaded
+print("uploaded...") #let us know GIF has been uploaded
             #turn on uploaded LED and play meow samples
