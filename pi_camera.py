@@ -43,7 +43,7 @@ print('ready...')
 try:
     while True:
         input_state = GPIO.input(button)
-        if input_state is True:
+        if input_state == True:
             print('Button Pressed')
             sleep(0.2)
             #if pressed blink yellow LED at two speeds
