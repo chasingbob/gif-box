@@ -49,6 +49,31 @@ try:
                 GPIO.output(yellow_led, False)
                 sleep(.25)
 
+            for i, filename in enumerate(camera.capture_continuous('image{counter:02d}.jpg')):
+                sleep(0.75)
+                if i == 6:
+                    break
+
+            for i in range(2):
+                GPIO.output(red_led, True)
+                sleep(.25)
+                GPIO.output(red_led, False)
+                sleep(.25)
+            
+            os.system(make_vid) #send command to convert images to GIF
+
+            client.create_photo(
+                'chasingbob',	#update to your username
+            	state="published",
+            	tags=["picamera", "raspberry pi", "test"],
+            	data="animation.gif")
+
+            for i in range(2):
+                GPIO.output(red_led, True)
+                sleep(.25)
+                GPIO.output(red_led, False)
+                sleep(.25)
+
         
 
 except KeyboardInterrupt:
