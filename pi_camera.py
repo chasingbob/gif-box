@@ -34,7 +34,7 @@ camera.brightness = 60 #set brightness settings to help with dark photos
 try:
     while True:
         input_state = GPIO.input(button)
-        if input_state == True:
+        if input_state is True:
             print('Button Pressed')
             sleep(0.2)
             #if pressed blink yellow LED at two speeds
