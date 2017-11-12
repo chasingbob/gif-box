@@ -93,22 +93,3 @@ try:
 
 except KeyboardInterrupt:
     print('Program stopped')
-
-
-#for i, filename in enumerate(camera.capture_continuous('image{counter:02d}.jpg')):
-#    sleep(0.75)
-#    if i == 6:
-#        break
-#camera.stop_preview() #stop preview 
-#os.system(makeVid) #send command to convert images to GIF
-#print('uploading...') #let us know photo is about to start uploading
-
-#upload photo to Tumblr
-#client.create_photo(
-#    'chasingbob',	#update to your username
-#	state="published",
-#	tags=["picamera", "raspberry pi", "test"],
-#	data="animation.gif")
-
-#print("uploaded...") #let us know GIF has been uploaded
-            #turn on uploaded LED and play meow samples
