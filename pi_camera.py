@@ -14,6 +14,7 @@ yellow_led = 27
 red_led = 17
 button = 18
 
+GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(button, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(yellow_led, GPIO.OUT)
