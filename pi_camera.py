@@ -21,10 +21,10 @@ GPIO.setup(red_led, GPIO.OUT)
 
 # AuthenticateS via OAuth, copy from https://api.tumblr.com/console/calls/user/info
 client = pytumblr.TumblrRestClient(
-  config.get_value('consumer_key'),
-  config.get_value('consumer_secret'),
-  config.get_value('token'),
-  config.get_value('token_secret')
+    config.get_value('consumer_key'),
+    config.get_value('consumer_secret'),
+    config.get_value('token'),
+    config.get_value('token_secret')
 )
 
 camera = picamera.PiCamera() #initiate picamera module and class
