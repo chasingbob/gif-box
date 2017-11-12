@@ -14,6 +14,9 @@ yellow_led = 27
 red_led = 17
 button = 18
 
+
+print('setup...')
+
 GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(button, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
@@ -28,9 +31,14 @@ client = pytumblr.TumblrRestClient(
     config.get_value('token_secret')
 )
 
+print('camera...')
+
 camera = picamera.PiCamera() #initiate picamera module and class
 camera.resolution = (640, 480) #set resolution of picture here
 camera.brightness = 60 #set brightness settings to help with dark photos
+
+
+print('ready...')
 
 try:
     while True:
@@ -64,10 +72,10 @@ try:
             os.system(make_vid) #send command to convert images to GIF
 
             client.create_photo(
-                'chasingbob',	#update to your username
-            	state="published",
-            	tags=["picamera", "raspberry pi", "test"],
-            	data="animation.gif")
+                    'chasingbob',
+            	    state="published",
+            	    tags=["picamera", "raspberry pi", "test"],
+            	    data="animation.gif")
 
             for i in range(2):
                 GPIO.output(red_led, True)
