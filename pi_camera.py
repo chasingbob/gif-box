@@ -58,10 +58,14 @@ try:
                 GPIO.output(yellow_led, False)
                 sleep(.25)
 
+            print('taking gif')
+
             for i, filename in enumerate(camera.capture_continuous('image{counter:02d}.jpg')):
                 sleep(0.75)
                 if i == 6:
                     break
+
+            print('done taking gif')
 
             for i in range(2):
                 GPIO.output(red_led, True)
@@ -76,6 +80,8 @@ try:
             	    state="published",
             	    tags=["picamera", "raspberry pi", "test"],
             	    data="animation.gif")
+
+            print('done uploading...')
 
             for i in range(2):
                 GPIO.output(red_led, True)
