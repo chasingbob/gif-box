@@ -73,12 +73,6 @@ try:
 
             print('done taking gif')
 
-            for i in range(3):
-                GPIO.output(red_led, True)
-                sleep(.25)
-                GPIO.output(red_led, False)
-                sleep(.25)
-            
             os.system(make_vid) #send command to convert images to GIF
 
             client.create_photo(
