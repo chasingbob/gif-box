@@ -63,11 +63,11 @@ try:
 
             for i, filename in enumerate(camera.capture_continuous('image{counter:02d}.jpg')):
                 GPIO.output(red_led, True)
-                sleep(0.5)
+                sleep(0.4)
                 GPIO.output(red_led, False)
-                sleep(0.25)
+                sleep(0.2)
 
-                if i == 6:
+                if i == 8:
                     break
 
             print('done taking gif')
