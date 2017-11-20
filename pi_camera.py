@@ -64,7 +64,7 @@ try:
 
             for i, filename in enumerate(camera.capture_continuous('image{counter:02d}.jpg')):
                 GPIO.output(red_led, True)
-                sleep(0.3)
+                sleep(0.2)
                 GPIO.output(red_led, False)
                 sleep(0.2)
 
