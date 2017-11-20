@@ -23,6 +23,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(button, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 GPIO.setup(yellow_led, GPIO.OUT)
 GPIO.setup(red_led, GPIO.OUT)
+GPIO.setup(green_led, GPIO.OUT)
 
 # AuthenticateS via OAuth, copy from https://api.tumblr.com/console/calls/user/info
 client = pytumblr.TumblrRestClient(
@@ -63,7 +64,7 @@ try:
 
             for i, filename in enumerate(camera.capture_continuous('image{counter:02d}.jpg')):
                 GPIO.output(red_led, True)
-                sleep(0.4)
+                sleep(0.3)
                 GPIO.output(red_led, False)
                 sleep(0.2)
 
