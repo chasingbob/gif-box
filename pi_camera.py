@@ -12,6 +12,7 @@ make_vid = "convert -delay 50 image*.jpg animation.gif"
 
 yellow_led = 27
 red_led = 17
+green_led = 22
 button = 18
 
 
@@ -45,7 +46,7 @@ try:
         input_state = GPIO.input(button)
         if input_state == True:
             print('Button Pressed')
-            sleep(0.2)
+            sleep(0.1)
             #if pressed blink yellow LED at two speeds
             for i in range(3):
                 GPIO.output(yellow_led, True)
@@ -61,13 +62,17 @@ try:
             print('taking gif')
 
             for i, filename in enumerate(camera.capture_continuous('image{counter:02d}.jpg')):
-                sleep(0.75)
+                GPIO.output(red_led, True)
+                sleep(0.5)
+                GPIO.output(red_led, False)
+                sleep(0.25)
+
                 if i == 6:
                     break
 
             print('done taking gif')
 
-            for i in range(2):
+            for i in range(3):
                 GPIO.output(red_led, True)
                 sleep(.25)
                 GPIO.output(red_led, False)
@@ -83,11 +88,11 @@ try:
 
             print('done uploading...')
 
-            for i in range(2):
-                GPIO.output(red_led, True)
-                sleep(.25)
-                GPIO.output(red_led, False)
-                sleep(.25)
+            for i in range(3):
+                GPIO.output(green_led, True)
+                sleep(0.25)
+                GPIO.output(green_led, False)
+                sleep(0.25)
 
         
 
