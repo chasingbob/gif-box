@@ -39,7 +39,6 @@ camera = picamera.PiCamera() #initiate picamera module and class
 camera.resolution = (640, 480) #set resolution of picture here
 camera.brightness = 60 #set brightness settings to help with dark photos
 
-
 print('ready...')
 
 try:
